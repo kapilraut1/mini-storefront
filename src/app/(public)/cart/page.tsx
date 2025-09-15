@@ -9,7 +9,6 @@ import { useCartStore } from "@/src/store/useCartStore";
 import { useProductStore } from "@/src/store/useProductStore"; 
 import Link from 'next/link'
 
-
 type CartItem = {
   id: string;
   name: string;
@@ -58,7 +57,6 @@ export default function Cart() {
 
   // Calculate total price from cartArray
   const totalPrice = cartArray.reduce((sum, item) => sum + item.price * item.quantity, 0);
-
   return cartArray.length > 0 ? (
     <div className="min-h-screen mx-6 text-slate-800">
       <div className="max-w-7xl mx-auto ">

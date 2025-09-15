@@ -47,7 +47,7 @@ export const categories = ["Sound", "Wearables", "Electronics"]
 
 export const productDummyData = [
   {
-    id: "prod_1",
+    id: "lamp",
     name: "Modern table lamp",
     description:
       "Modern table lamp with a sleek design. Perfect for any room with high-quality materials.",
@@ -60,7 +60,7 @@ export const productDummyData = [
     updatedAt: "2025-07-29T14:51:25.000Z",
   },
   {
-    id: "prod_2",
+    id: "speaker-gray",
     name: "Smart speaker gray",
     description: "Smart speaker with a minimal design and rich sound quality.",
     mrp: 50,
@@ -72,7 +72,7 @@ export const productDummyData = [
     updatedAt: "2025-07-28T14:51:25.000Z",
   },
   {
-    id: "prod_3",
+    id: "watch-white",
     name: "Smart watch white",
     description: "Smart watch with modern design and health tracking features.",
     mrp: 60,
@@ -84,7 +84,7 @@ export const productDummyData = [
     updatedAt: "2025-07-27T14:51:25.000Z",
   },
   {
-    id: "prod_4",
+    id: "headphone",
     name: "Wireless headphones",
     description: "Wireless headphones with premium sound and long battery life.",
     mrp: 70,
@@ -96,7 +96,7 @@ export const productDummyData = [
     updatedAt: "2025-07-26T14:51:25.000Z",
   },
   {
-    id: "prod_5",
+    id: "bluetooth-speaker",
     name: "Portable Bluetooth speaker",
     description: "Compact speaker with deep bass and waterproof design.",
     mrp: 80,
@@ -108,7 +108,7 @@ export const productDummyData = [
     updatedAt: "2025-07-25T14:51:25.000Z",
   },
   {
-    id: "prod_6",
+    id: "wristwatch",
     name: "Classic wristwatch",
     description: "Timeless wristwatch with leather strap and durable build.",
     mrp: 120,
@@ -120,7 +120,7 @@ export const productDummyData = [
     updatedAt: "2025-07-24T14:51:25.000Z",
   },
   {
-    id: "prod_7",
+    id: "smartphone-pro",
     name: "Smartphone Pro",
     description: "High-performance smartphone with latest features.",
     mrp: 599,
@@ -132,7 +132,7 @@ export const productDummyData = [
     updatedAt: "2025-07-23T14:51:25.000Z",
   },
   {
-    id: "prod_8",
+    id: "decor-vase",
     name: "Decor vase",
     description: "Elegant ceramic vase for modern interiors.",
     mrp: 190,
@@ -144,7 +144,7 @@ export const productDummyData = [
     updatedAt: "2025-07-22T14:51:25.000Z",
   },
   {
-    id: "prod_9",
+    id: "noise-cancel-headphone",
     name: "Noise cancelling headphones",
     description: "Over-ear headphones with advanced noise cancellation.",
     mrp: 399,
@@ -156,7 +156,7 @@ export const productDummyData = [
     updatedAt: "2025-07-21T14:51:25.000Z",
   },
   {
-    id: "prod_10",
+    id: "apple-watch",
     name: "Apple watch series 10",
     description: "The sleekest but finest.",
     mrp: 299,
@@ -168,7 +168,7 @@ export const productDummyData = [
     updatedAt: "2025-07-20T14:51:25.000Z",
   },
   {
-    id: "prod_11",
+    id: "mouse",
     name: "Mouse",
     description: "Mouse can be a help.",
     mrp: 110,
@@ -180,7 +180,7 @@ export const productDummyData = [
     updatedAt: "2025-07-19T14:51:25.000Z",
   },
   {
-    id: "prod_12",
+    id: "mini-lamp",
     name: "Minimalist desk lamp",
     description: "Simple and elegant desk lamp for study or office use.",
     mrp: 159,
@@ -192,7 +192,7 @@ export const productDummyData = [
     updatedAt: "2025-07-18T14:51:25.000Z",
   },
     {
-    id: "prod_13",
+    id: "watch-black",
     name: "Black watch",
     description: "Simple and elegant watch.",
     mrp: 109,
@@ -204,7 +204,7 @@ export const productDummyData = [
     updatedAt: "2025-07-18T14:51:25.000Z",
   },
     {
-    id: "prod_14",
+    id: "gaming",
     name: "Gaming",
     description: "Entertainment. Feels so real!!",
     mrp: 699,
@@ -215,7 +215,7 @@ export const productDummyData = [
     createdAt: "2025-07-18T14:51:25.000Z",
     updatedAt: "2025-07-18T14:51:25.000Z",
   },  {
-    id: "prod_15",
+    id: "b-headphone",
     name: "Bose Headphones",
     description: "Simple and elegant headphone for study or office use.",
     mrp: 200,

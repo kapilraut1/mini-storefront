@@ -3,7 +3,6 @@ import { Search } from "lucide-react";
 import { useState, useMemo } from "react";
 import { useProductStore } from "@/src/store/useProductStore";
 import ProductCard from "./ProductCard";
-// import Title from "./Title";
 
 const Products = () => {
   const products = useProductStore((s) => s.list);

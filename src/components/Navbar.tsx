@@ -21,13 +21,13 @@ const Navbar = () => {
                 <div className="flex items-center justify-between max-w-7xl mx-auto py-4 transition-all">
 
                     <Link href="/" className="relative text-4xl font-semibold text-slate-700">
-                        <span className="text-red-600">Mini</span>-mart<span className="text-red-600 text-5xl leading-0">.</span>
+                        <span className="text-red-600">Mini</span>-storeFront<span className="text-red-600 text-5xl leading-0">.</span>
                     </Link>
 
                     {/* Desktop Menu */}
                     <div className="hidden sm:flex items-center gap-4 lg:gap-8 text-slate-600">
                         <Link href="/">Home</Link>
-                        <Link href="/shop">Shop</Link>
+                        <Link href="/">Shop</Link>
                         <Link href="/">About</Link>
                         <Link href="/">Contact</Link>
 
@@ -53,7 +53,7 @@ const Navbar = () => {
                         ) : (
                             <button
                                 onClick={()=>openSignIn()}
-                                className="px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full"
+                                className="px-8 py-2 bg-green-500 hover:bg-green-700 transition text-white rounded-full"
                             >
                                 Login
                             </button>
@@ -62,6 +62,13 @@ const Navbar = () => {
 
                     {/* Mobile User Button */}
                     <div className="sm:hidden">
+                        <Link href="/cart" className="relative flex items-center my-2 gap-2 text-slate-600">
+                            <ShoppingCart size={17} />
+                            Cart
+                            <button className="absolute -top-1 left-3 text-[8px] text-white bg-slate-600 size-3.5 rounded-full">
+                                {cartCount}
+                            </button>
+                        </Link>
                         {isLoaded && user ? (
                             <div>
                                 <UserButton>
