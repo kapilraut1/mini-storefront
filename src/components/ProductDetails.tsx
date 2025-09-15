@@ -100,7 +100,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             onClick={() =>
               !cartItems[productId] ? addToCartHandler() : router.push("/cart")
             }
-            className="bg-slate-800 text-white px-10 py-3 text-sm font-medium rounded hover:bg-slate-900 active:scale-95 transition"
+            className="bg-orange-500 text-white px-10 py-3 text-sm font-medium rounded hover:bg-orange-700 active:scale-95 transition"
           >
             {!cartItems[productId] ? "Add to Cart" : "View Cart"}
           </button>
@@ -111,13 +111,13 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
         {/* Extra Info */}
         <div className="flex flex-col gap-4 text-slate-500">
           <p className="flex gap-3">
-            <EarthIcon className="text-slate-400" /> Free shipping worldwide
+            <EarthIcon className="text-green-400" /> Free shipping inside Kathmandu Valley
           </p>
           <p className="flex gap-3">
-            <CreditCardIcon className="text-slate-400" /> 100% Secured Payment
+            <CreditCardIcon className="text-green-400" /> 100% Authentic Product
           </p>
           <p className="flex gap-3">
-            <UserIcon className="text-slate-400" /> Trusted by top brands
+            <UserIcon className="text-green-400" /> COD available
           </p>
         </div>
       </div>

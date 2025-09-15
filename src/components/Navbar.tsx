@@ -52,7 +52,7 @@ const Navbar = () => {
                             </UserButton>
                         ) : (
                             <button
-                                onClick={()=>openSignIn}
+                                onClick={()=>openSignIn()}
                                 className="px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full"
                             >
                                 Login

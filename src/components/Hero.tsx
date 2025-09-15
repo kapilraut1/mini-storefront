@@ -3,7 +3,6 @@ import { assets } from "@/src/assets/assets";
 import { ArrowRightIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import CategoriesMarquee from "./CategoriesMarquee";
 
 const Hero = () => {
   const currency = process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || "$";
@@ -39,6 +38,7 @@ const Hero = () => {
             src={assets.hero_model_img}
             alt=""
             style={{ backgroundColor: "transparent" }}
+            priority
           />{" "}
         </div>
         <div className="flex flex-col md:flex-row xl:flex-col gap-5 w-full xl:max-w-sm text-sm text-slate-600">
@@ -74,7 +74,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <CategoriesMarquee />
     </div>
   );
 };

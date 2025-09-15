@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-
 type ProductType = {
   id: string
   name: string
@@ -39,6 +38,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </p>
       </div>
     </Link>
+
   )
 }
 

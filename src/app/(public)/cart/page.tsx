@@ -5,8 +5,10 @@ import PageTitle from "@/src/components/PageTitle";
 import { Trash2Icon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
-import { useCartStore } from "@/src/store/useCartStore"; // ✅ import Zustand store
-import { useProductStore } from "@/src/store/useProductStore"; // <-- assuming you have one for products
+import { useCartStore } from "@/src/store/useCartStore"; 
+import { useProductStore } from "@/src/store/useProductStore"; 
+import Link from 'next/link'
+
 
 type CartItem = {
   id: string;
@@ -26,10 +28,8 @@ export default function Cart() {
   const products = useProductStore((state) => state.list);
 
   const [cartArray, setCartArray] = useState<CartItem[]>([]);
-//   const [totalPrice, setTotalPrice] = useState(0);
 
   const createCartArray = useCallback(() => {
-    // setTotalPrice(0);
     const cartArray: CartItem[] = [];
 
     for (const [key, value] of Object.entries(cartItems)) {
@@ -40,7 +40,6 @@ export default function Cart() {
           images: product.images.map((img: string | { src: string }) => typeof img === "string" ? img : img.src),
           quantity: value,
         });
-        // setTotalPrice((prev) => prev + product.price * value);
       }
     }
 
@@ -81,13 +80,16 @@ export default function Cart() {
                 <tr key={index} className="space-x-2">
                   <td className="flex gap-3 my-4">
                     <div className="flex gap-3 items-center justify-center bg-slate-100 size-18 rounded-md">
-                      <Image
+                     <Link
+      href={`/product/${item.id}`}
+      className="group max-xl:mx-auto"
+    >  <Image
                         src={item.images[0]}
                         className="h-14 w-auto"
                         alt={item.name}
                         width={45}
                         height={45}
-                      />
+                      /></Link>
                     </div>
                     <div>
                       <p className="max-sm:text-sm">{item.name}</p>

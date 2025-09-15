@@ -1,5 +1,7 @@
 // store/useCartStore.ts
-import { create } from 'zustand';
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { productDummyData } from "@/src/assets/assets";
 
 type CartItems = {
   [productId: string]: number;
@@ -14,54 +16,66 @@ type CartState = {
   clearCart: () => void;
 };
 
-export const useCartStore = create<CartState>((set) => ({
-  total: 0,
-  cartItems: {},
+export const useCartStore = create<CartState>()(
+  persist(
+    (set) => ({
+      total: 0,
+      cartItems: {},
 
-  addToCart: (productId) =>
-    set((state) => {
-      const currentQty = state.cartItems[productId] || 0;
-      return {
-        cartItems: {
-          ...state.cartItems,
-          [productId]: currentQty + 1,
-        },
-        total: state.total + 1,
-      };
+      addToCart: (productId) =>
+        set((state) => {
+          const product = productDummyData.find((p) => p.id === productId);
+          if (!product) return state;
+
+          const currentQty = state.cartItems[productId] || 0;
+          if (currentQty >= product.Stock) return state;
+
+          return {
+            cartItems: {
+              ...state.cartItems,
+              [productId]: currentQty + 1,
+            },
+            total: state.total + 1,
+          };
+        }),
+
+      removeFromCart: (productId) =>
+        set((state) => {
+          const currentQty = state.cartItems[productId];
+          if (!currentQty) return state;
+
+          const updatedItems = { ...state.cartItems };
+          if (currentQty === 1) {
+            delete updatedItems[productId];
+          } else {
+            updatedItems[productId] = currentQty - 1;
+          }
+
+          return {
+            cartItems: updatedItems,
+            total: state.total - 1,
+          };
+        }),
+
+      deleteItemFromCart: (productId) =>
+        set((state) => {
+          const qty = state.cartItems[productId] || 0;
+          const updatedItems = { ...state.cartItems };
+          delete updatedItems[productId];
+
+          return {
+            cartItems: updatedItems,
+            total: state.total - qty,
+          };
+        }),
+
+      clearCart: () => ({
+        cartItems: {},
+        total: 0,
+      }),
     }),
-
-  removeFromCart: (productId) =>
-    set((state) => {
-      const currentQty = state.cartItems[productId];
-      if (!currentQty) return state; // item not in cart
-
-      const updatedItems = { ...state.cartItems };
-      if (currentQty === 1) {
-        delete updatedItems[productId];
-      } else {
-        updatedItems[productId] = currentQty - 1;
-      }
-
-      return {
-        cartItems: updatedItems,
-        total: state.total - 1,
-      };
-    }),
-
-  deleteItemFromCart: (productId) =>
-    set((state) => {
-      const qty = state.cartItems[productId] || 0;
-      const updatedItems = { ...state.cartItems };
-      delete updatedItems[productId];
-
-      return {
-        cartItems: updatedItems,
-        total: state.total - qty,
-      };
-    }),
-
-  clearCart: () => ({
-    cartItems: {},
-    total: 0,
-  }),
-}));
+    {
+      name: "kaps-cart-storage", // key in localStorage
+    }
+  )
+);
