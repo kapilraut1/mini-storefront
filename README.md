@@ -1,4 +1,4 @@
-       🛍️ Mini-storeFront
+🛍️ Mini-storeFront
 
 A mini-ecommerce web app built with Next.js, TailwindCSS, and Clerk authentication.Strongly typed with typescript
 
@@ -6,14 +6,13 @@ A mini-ecommerce web app built with Next.js, TailwindCSS, and Clerk authenticati
 
 Clone the repo
 
-git clone <your-repo-url>
+git clone <https://github.com/kapilraut1/mini-storefront.git>
 cd <project-folder>
 
-
-Install dependencies
+Now Install dependencies
 
 npm install
-# or
+ ||
 yarn install
 
 
@@ -22,54 +21,59 @@ Create a .env.local file with the required keys:
 
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_key
 CLERK_SECRET_KEY=your_key
-DATABASE_URL=your_database_url
-
+NEXT_PUBLIC_CURRENCY_SYMBOL = 'Required currency'
 
 Run the dev server
 
 npm run dev
 
-
 The app will be available at http://localhost:3000
-.
+
+ 🛠️ Tech Stack used
+- [Next.js](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/) – Styling
+- [Clerk](https://clerk.com/) – Authentication
+- [Zustand](https://zustand-demo.pmnd.rs/) – State management
 
 🏗️ Architecture Notes
-Pages / Routes
+Pages /            Routes
 
-/ → Home / Product listing
+/                  → Home 
 
-/cart → User’s cart (protected by Clerk)
+/product/productId → Single product with recommendations
 
-/orders → Order history (protected)
+/cart              → cart (protected by Clerk)
+
+/orders            → Order (protected)
 
 /sign-in, /sign-up → Clerk auth pages
 
-/api/* → Backend endpoints (for cart, orders, etc.)
+/api/*             → Backend endpoints
+
 
 State Management
-
-Uses Zustand for client-side state (cart, UI state).
+Uses Zustand for client-side state. It is available in store folder.
 
 Authentication state handled by Clerk.
 
-Server components fetch product/order data where possible.
 
-Data Flow
+🛍️ Data Flow
 
-Products → fetched from backend or API routes → rendered in pages or app router.
+1. User lands on /        → sees navbar, hero component, products and footer.
 
-Cart → managed in Zustand store → persisted in local state or backend (depending on implementation).
+2. When clicked a product → routes to /product/[prodcut.id] where we can add product to cart and recommendations shown below.
 
-Orders → created via API route → stored in database → displayed in /orders.
+3. User goes to /cart     → sees selected items and can place order.
 
-⚖️ Trade-offs / Known Issues
+4. Order is created       → user is redirected to /orders.
 
-Middleware runtime: Clerk middleware may fall back to Node.js runtime instead of Edge, which reduces performance slightly.
 
-SEO: Some pages (like product listing) are SSR/SSG friendly, but cart/orders are behind auth and not crawlable.
+⚖️  Known Issues
 
-Animations: Custom Tailwind animations (e.g., marquee) might not be perfectly smooth on lower-end devices.
+1. Middleware runtime: I found the Clerk middleware falling back to Node.js runtime instead of Edge, which reduced performance slightly.
 
-Toast UX: Using toast.promise means order confirmations resolve as soon as the API responds; we add artificial delays for better UX.
+2. SEO: Some pages (like product listing) are SEO friendly, but cart/orders are behind auth.
 
-Dark Mode: Implemented with next-themes; relies on client hydration, so there may be a flash of unstyled content (FOUC) before theme loads.
+3. TypeScript typing : Some areas still use `unknown`, which could be improved with standard types in future.
+
+4. Your .env app should be in the **project root folder**. 
