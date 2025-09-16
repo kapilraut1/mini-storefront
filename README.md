@@ -77,3 +77,10 @@ Authentication state handled by Clerk.
 3. TypeScript typing : Some areas still use `unknown`, which could be improved with standard types in future.
 
 4. Your .env app should be in the **project root folder**. 
+
+
+🎥 Demo
+
+👉 [Watch Video Demo](./flow.mp4)  
+
+
