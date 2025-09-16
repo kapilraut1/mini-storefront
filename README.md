@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+       🛍️ Mini-storeFront
 
-## Getting Started
+A mini-ecommerce web app built with Next.js, TailwindCSS, and Clerk authentication.Strongly typed with typescript
 
-First, run the development server:
+🚀 How to Run the Project
 
-```bash
+Clone the repo
+
+git clone <your-repo-url>
+cd <project-folder>
+
+
+Install dependencies
+
+npm install
+# or
+yarn install
+
+
+Set up environment variables
+Create a .env.local file with the required keys:
+
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_key
+CLERK_SECRET_KEY=your_key
+DATABASE_URL=your_database_url
+
+
+Run the dev server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The app will be available at http://localhost:3000
+.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🏗️ Architecture Notes
+Pages / Routes
 
-## Learn More
+/ → Home / Product listing
 
-To learn more about Next.js, take a look at the following resources:
+/cart → User’s cart (protected by Clerk)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+/orders → Order history (protected)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+/sign-in, /sign-up → Clerk auth pages
 
-## Deploy on Vercel
+/api/* → Backend endpoints (for cart, orders, etc.)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+State Management
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Uses Zustand for client-side state (cart, UI state).
+
+Authentication state handled by Clerk.
+
+Server components fetch product/order data where possible.
+
+Data Flow
+
+Products → fetched from backend or API routes → rendered in pages or app router.
+
+Cart → managed in Zustand store → persisted in local state or backend (depending on implementation).
+
+Orders → created via API route → stored in database → displayed in /orders.
+
+⚖️ Trade-offs / Known Issues
+
+Middleware runtime: Clerk middleware may fall back to Node.js runtime instead of Edge, which reduces performance slightly.
+
+SEO: Some pages (like product listing) are SSR/SSG friendly, but cart/orders are behind auth and not crawlable.
+
+Animations: Custom Tailwind animations (e.g., marquee) might not be perfectly smooth on lower-end devices.
+
+Toast UX: Using toast.promise means order confirmations resolve as soon as the API responds; we add artificial delays for better UX.
+
+Dark Mode: Implemented with next-themes; relies on client hydration, so there may be a flash of unstyled content (FOUC) before theme loads.
