@@ -1,6 +1,8 @@
 import Link from "next/link";
 
 const Footer = () => {
+
+  //icons
   const MailIcon = () => (
     <svg
       width="16"
@@ -126,6 +128,7 @@ const Footer = () => {
     </svg>
   );
 
+  // Footer links
   const linkSections = [
     {
       title: "PRODUCTS",
@@ -155,6 +158,7 @@ const Footer = () => {
     },
   ];
 
+  // github, linkedin
   const socialIcons = [
     { icon: GithubIcon, link: "https://github.com/kapilraut1" },
     {
@@ -168,6 +172,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-slate-500/30 text-slate-500">
           <div>
+            {/* Name */}
             <Link href="/" className="text-4xl font-semibold text-slate-700">
               <span className="text-red-600">Mini</span>-storeFront
               <span className="text-red-600 text-5xl leading-0">.</span>
@@ -187,6 +192,7 @@ const Footer = () => {
               ))}
             </div>
           </div>
+          {/* normal links */}
           <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5 text-sm ">
             {linkSections.map((section, index) => (
               <div key={index}>
@@ -210,6 +216,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
+        {/* Bottom */}
         <p className="py-4 text-sm text-slate-500">
           Copyright 2025 © Kapil Raut All Right Reserved.
         </p>

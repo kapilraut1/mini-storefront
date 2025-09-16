@@ -8,7 +8,7 @@ import Image from "next/image";
 import Counter from "./Counter";
 import toast from "react-hot-toast";
 
-// ✅ Define Product type
+// ✅ Defining Product type to solve any type
 type ProductType = {
   id: string;
   name: string;
@@ -39,7 +39,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
   return (
     <div className="flex max-lg:flex-col gap-12">
-      {/* Product Images */}
+      {/* Images */}
       <div className="flex max-sm:flex-col-reverse gap-3">
         <div className="flex sm:flex-col gap-3">
           {product.images.map((image, index) => (
@@ -84,7 +84,6 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
           <TagIcon size={14} />
           <p>
             Save {(((product.mrp - product.price) / product.mrp) * 100).toFixed(0)}%
-            right now
           </p>
         </div>
 
@@ -108,7 +107,7 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
 
         <hr className="border-gray-300 my-5" />
 
-        {/* Extra Info */}
+        {/* Info below */}
         <div className="flex flex-col gap-4 text-slate-500">
           <p className="flex gap-3">
             <EarthIcon className="text-green-400" /> Free shipping inside Kathmandu Valley

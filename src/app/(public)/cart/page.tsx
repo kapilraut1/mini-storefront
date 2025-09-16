@@ -22,12 +22,13 @@ type CartItem = {
 export default function Cart() {
   const currency = process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || "$";
 
-  const { cartItems, deleteItemFromCart } = useCartStore();
+  const { cartItems, deleteItemFromCart } = useCartStore();   //from store
 
   const products = useProductStore((state) => state.list);
 
   const [cartArray, setCartArray] = useState<CartItem[]>([]);
 
+  //cart logic
   const createCartArray = useCallback(() => {
     const cartArray: CartItem[] = [];
 
@@ -55,7 +56,7 @@ export default function Cart() {
     }
   }, [cartItems, products, createCartArray]);
 
-  // Calculate total price from cartArray
+  // Calculate total price 
   const totalPrice = cartArray.reduce((sum, item) => sum + item.price * item.quantity, 0);
   return cartArray.length > 0 ? (
     <div className="min-h-screen mx-6 text-slate-800">

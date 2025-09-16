@@ -17,6 +17,7 @@ type CartState = {
 };
 
 export const useCartStore = create<CartState>()(
+  // for storing in localstorage kaps-cart-storage
   persist(
     (set) => ({
       total: 0,

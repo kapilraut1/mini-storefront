@@ -1,5 +1,4 @@
 import gs_logo from "./gs_logo.jpg"
-import upload_area from "./upload_area.svg"
 import hero_model_img from "./hero_model_img.png"
 import hero_product_img1 from "./hero_product_img1.png"
 import hero_product_img2 from "./hero_product_img2.png"
@@ -21,7 +20,6 @@ import product_img15 from "./product_img15.png"
 
 
 export const assets = {
-  upload_area,
   hero_model_img,
   hero_product_img1,
   hero_product_img2,
@@ -53,11 +51,10 @@ export const productDummyData = [
       "Modern table lamp with a sleek design. Perfect for any room with high-quality materials.",
     mrp: 40,
     price: 9,
-    images: [product_img1, product_img2, product_img3, product_img4],
+    images: [product_img1, product_img1, product_img1, product_img1],
     category: "Electronics",
     Stock: 5,
-    createdAt: "2025-07-29T14:51:25.000Z",
-    updatedAt: "2025-07-29T14:51:25.000Z",
+    
   },
   {
     id: "speaker-gray",
@@ -65,11 +62,10 @@ export const productDummyData = [
     description: "Smart speaker with a minimal design and rich sound quality.",
     mrp: 50,
     price: 19,
-    images: [product_img2],
+    images: [product_img2, product_img2],
     Stock: 5,
     category: "Sound",
-    createdAt: "2025-07-28T14:51:25.000Z",
-    updatedAt: "2025-07-28T14:51:25.000Z",
+  
   },
   {
     id: "watch-white",
@@ -77,11 +73,10 @@ export const productDummyData = [
     description: "Smart watch with modern design and health tracking features.",
     mrp: 60,
     price: 18,
-    images: [product_img3],
+    images: [product_img3, product_img3],
     Stock: 5,
     category: "Wearables",
-    createdAt: "2025-07-27T14:51:25.000Z",
-    updatedAt: "2025-07-27T14:51:25.000Z",
+
   },
   {
     id: "headphone",
@@ -89,11 +84,10 @@ export const productDummyData = [
     description: "Wireless headphones with premium sound and long battery life.",
     mrp: 70,
     price: 22,
-    images: [product_img4],
+    images: [product_img4, product_img4],
     Stock: 5,
     category: "Wearables",
-    createdAt: "2025-07-26T14:51:25.000Z",
-    updatedAt: "2025-07-26T14:51:25.000Z",
+    
   },
   {
     id: "bluetooth-speaker",
@@ -104,8 +98,7 @@ export const productDummyData = [
     images: [product_img5],
     Stock: 5,
     category: "Sound",
-    createdAt: "2025-07-25T14:51:25.000Z",
-    updatedAt: "2025-07-25T14:51:25.000Z",
+ 
   },
   {
     id: "wristwatch",
@@ -116,8 +109,7 @@ export const productDummyData = [
     images: [product_img6],
     Stock: 5,
     category: "Wearables",
-    createdAt: "2025-07-24T14:51:25.000Z",
-    updatedAt: "2025-07-24T14:51:25.000Z",
+    
   },
   {
     id: "smartphone-pro",
@@ -128,8 +120,7 @@ export const productDummyData = [
     images: [product_img7],
     Stock: 5,
     category: "Electronics",
-    createdAt: "2025-07-23T14:51:25.000Z",
-    updatedAt: "2025-07-23T14:51:25.000Z",
+    
   },
   {
     id: "decor-vase",
@@ -140,8 +131,7 @@ export const productDummyData = [
     images: [product_img8],
     Stock: 5,
     category: "Sound",
-    createdAt: "2025-07-22T14:51:25.000Z",
-    updatedAt: "2025-07-22T14:51:25.000Z",
+    
   },
   {
     id: "noise-cancel-headphone",
@@ -152,8 +142,7 @@ export const productDummyData = [
     images: [product_img9],
     Stock: 5,
     category: "Sound",
-    createdAt: "2025-07-21T14:51:25.000Z",
-    updatedAt: "2025-07-21T14:51:25.000Z",
+
   },
   {
     id: "apple-watch",
@@ -164,8 +153,7 @@ export const productDummyData = [
     images: [product_img10],
     Stock: 5,
     category: "Wearables",
-    createdAt: "2025-07-20T14:51:25.000Z",
-    updatedAt: "2025-07-20T14:51:25.000Z",
+  
   },
   {
     id: "mouse",
@@ -176,8 +164,7 @@ export const productDummyData = [
     images: [product_img11],
     Stock: 5,
     category: "Electronics",
-    createdAt: "2025-07-19T14:51:25.000Z",
-    updatedAt: "2025-07-19T14:51:25.000Z",
+
   },
   {
     id: "mini-lamp",
@@ -188,8 +175,7 @@ export const productDummyData = [
     images: [product_img12],
     Stock: 5,
     category: "Electronics",
-    createdAt: "2025-07-18T14:51:25.000Z",
-    updatedAt: "2025-07-18T14:51:25.000Z",
+
   },
     {
     id: "watch-black",
@@ -200,8 +186,7 @@ export const productDummyData = [
     images: [product_img13],
     Stock: 5,
     category: "Wearables",
-    createdAt: "2025-07-18T14:51:25.000Z",
-    updatedAt: "2025-07-18T14:51:25.000Z",
+    
   },
     {
     id: "gaming",
@@ -212,8 +197,6 @@ export const productDummyData = [
     images: [product_img14],
     Stock: 5,
     category: "Electronics",
-    createdAt: "2025-07-18T14:51:25.000Z",
-    updatedAt: "2025-07-18T14:51:25.000Z",
   },  {
     id: "b-headphone",
     name: "Bose Headphones",
@@ -223,8 +206,6 @@ export const productDummyData = [
     images: [product_img15],
     Stock: 5,
     category: "Sound",
-    createdAt: "2025-07-18T14:51:25.000Z",
-    updatedAt: "2025-07-18T14:51:25.000Z",
   }
 ]
 

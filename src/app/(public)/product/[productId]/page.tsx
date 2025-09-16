@@ -4,7 +4,7 @@
 
 import ProductDescription from "@/src/components/ProductDescription";
 import ProductDetails from "@/src/components/ProductDetails";
-import ProductCard from "@/src/components/ProductCard"; // ✅ import your ProductCard
+import ProductCard from "@/src/components/ProductCard"; 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useProductStore } from "@/src/store/useProductStore";
@@ -40,14 +40,13 @@ export default function Product() {
   }, [productId, products]);
 
   if (!product) {
-    return null; // or a loading/empty state
+    return null; 
   }
 
-  // ✅ Get recommendations from same category
+  //reccomendation logic
   const recommendations = products
     .filter((p) => p.category === product.category && p.id !== product.id)
-    //upto 4 products
-    .slice(0, 4); 
+    .slice(0, 4); //max 4 products
 
   return (
     <div className="m-6">

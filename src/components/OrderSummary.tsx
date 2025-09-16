@@ -6,17 +6,18 @@ import { useRouter } from 'next/navigation'
 
 type OrderSummaryProps = {
   totalPrice: number
-  items: unknown[] // TODO: Replace with a specific item type
+  items: unknown[] // item type
 }
 
 const OrderSummary: React.FC<OrderSummaryProps> = ({ totalPrice }) => {
   const currency = process.env.NEXT_PUBLIC_CURRENCY_SYMBOL || '$'
   const router = useRouter()
 
-  const [paymentMethod, setPaymentMethod] = useState<'COD' | 'STRIPE'>('COD')
+  const [paymentMethod, setPaymentMethod] = useState<'COD' | 'Esewa'>('COD')
 
-  const handlePlaceOrder = async (e: React.FormEvent) => {
-    e.preventDefault()
+  //placing order
+  const handlePlaceOrder = async () => {
+          toast.success("Your order has been successfully placed.")
     router.push('/orders')
   }
 
@@ -42,14 +43,14 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ totalPrice }) => {
       <div className="flex gap-2 items-center mt-1">
         <input
           type="radio"
-          id="STRIPE"
+          id="Esewa"
           name="payment"
-          onChange={() => setPaymentMethod('STRIPE')}
-          checked={paymentMethod === 'STRIPE'}
+          onChange={() => setPaymentMethod('Esewa')}
+          checked={paymentMethod === 'Esewa'}
           className="accent-gray-500"
         />
-        <label htmlFor="STRIPE" className="cursor-pointer">
-          Stripe Payment
+        <label htmlFor="Esewa" className="cursor-pointer">
+          Esewa Payment
         </label>
       </div>
 
@@ -81,8 +82,8 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ totalPrice }) => {
 
       {/* Place Order Button */}
       <button
-        onClick={(e) =>
-          toast.promise(handlePlaceOrder(e), { loading: 'Placing Order...' })
+        onClick={() =>
+          handlePlaceOrder()
         }
         className="w-full bg-slate-700 text-white py-2.5 rounded hover:bg-slate-900 active:scale-95 transition-all"
       >

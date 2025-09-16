@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-// ✅ Define Product type
+//Defining Product type
 type ProductType = {
   id: string;
   name: string;
@@ -18,7 +18,7 @@ const ProductDescription = ({ product }: ProductDescriptionProps) => {
 
   return (
     <div className="my-18 text-sm text-slate-600">
-      {/* Tabs */}
+      {/* Container */}
       <div className="flex border-b border-slate-200 mb-6 max-w-2xl">
         <button
           className={`${
@@ -36,9 +36,6 @@ const ProductDescription = ({ product }: ProductDescriptionProps) => {
       {selectedTab === "Description" && (
         <p className="max-w-xl">{product.description}</p>
       )}
-
-      {/* Store Info */}
- 
     </div>
   );
 };

@@ -21,7 +21,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
       href={`/product/${product.id}`}
       className="group max-xl:mx-auto"
     >
+      {/* Image container */}
       <div className="bg-[#F5F5F5] h-40 sm:w-60 sm:h-68 rounded-lg flex items-center justify-center">
+        {/* Image */}
         <Image
           width={500}
           height={500}

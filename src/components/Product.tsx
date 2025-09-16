@@ -12,10 +12,11 @@ const Products = () => {
   const [min, setMin] = useState<number | "">("");
   const [sort, setSort] = useState<"asc" | "desc" | "">("");
   const [page, setPage] = useState(1);
-  const perPage = 5; // items per page
+  const perPage = 5; // 5 items max
 
   const categories = [...new Set(products.map((p) => p.category))];
 
+// using useMemo for controls logic 
   const filtered = useMemo(() => {
     const list = products.filter(
       (p) =>
@@ -52,12 +53,12 @@ const Products = () => {
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);
-              setPage(1); // reset page on search
+              setPage(1); // It resets the page on re search.
             }}
           />
         </div>
         <div className="flex flex-wrap gap-4 items-center bg-slate-100 shadow-md p-4 rounded-xl">
-          {/* Category Filter */}
+          {/* Category filtering */}
           <select
             value={category}
             onChange={(e) => {
@@ -91,7 +92,7 @@ const Products = () => {
             <div className="text-sm text-slate-600 mt-1">${min || 9}</div>
           </div>
 
-          {/* Sort */}
+          {/* Sort from high-low or low-high */}
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as "asc" | "desc" | "")}
@@ -104,7 +105,7 @@ const Products = () => {
         </div>
       </div>
 
-      {/* Products */}
+      {/* Products display and pagination */}
       {paginated.length ? (
         <>
           <div className="grid grid-cols-2 sm:flex flex-wrap gap-6 xl:gap-12">

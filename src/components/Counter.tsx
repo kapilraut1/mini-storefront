@@ -1,4 +1,4 @@
-
+// for cart 
 "use client";
 import { useCartStore } from "../store/useCartStore";
 import { useProductStore } from "../store/useProductStore";
@@ -17,6 +17,7 @@ const Counter = ({ productId }: CounterProps) => {
 
   const quantity = cartItems[productId] || 0;
 
+  // Cart addition, subtraction, stock check logic
   const addToCartHandler = () => {
     if (quantity >= stock) {
       toast.error(`Only ${stock} in stock`);
