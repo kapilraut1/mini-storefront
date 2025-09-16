@@ -67,6 +67,7 @@ Authentication state handled by Clerk.
 
 4. Order is created       → user is redirected to /orders.
 
+5. You can understand the flow from './flow.mp4'
 
 ⚖️  Known Issues
 
@@ -79,8 +80,7 @@ Authentication state handled by Clerk.
 4. Your .env app should be in the **project root folder**. 
 
 
-🎥 Demo
 
-👉 [Watch Video Demo](./flow.mp4)  
+
 
 
